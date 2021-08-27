@@ -17,5 +17,17 @@ public class MainActivity extends AppCompatActivity {
         pager.setOffscreenPageLimit(3);
 
         PagerManager pagerManager = new PagerManager(getSupportFragmentManager());
+
+        WordListFragment wordListFragment = new WordListFragment();
+        pagerManager.addItem(wordListFragment);
+
+        MainFragment mainFragment = new MainFragment();
+        pagerManager.addItem(mainFragment);
+
+        InsertFragment insertFragment = new InsertFragment();
+        pagerManager.addItem(insertFragment);
+
+        pager.setAdapter(pagerManager);
+        pager.setCurrentItem(1);
     }
 }
