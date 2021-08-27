@@ -3,6 +3,8 @@ package org.techtown.word;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,5 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
         pager.setAdapter(pagerManager);
         pager.setCurrentItem(1);
+
+        DAO dao = new DAO(this);
+
     }
 }
