@@ -48,11 +48,11 @@ public class InsertFragment extends Fragment {
                 db.execSQL("Create table if not exists word (category VARCHAR(50), comment VARCHAR(255), content VARCHAR(512))");
                 db.execSQL("insert into word (category, comment, content) values ('"+value+"','"+text_comment+"','"+text_contents+"')");
 
-                Cursor cursor = db.rawQuery("Select * From word", null);
+                Cursor cursor = db.rawQuery("SELECT * FROM word", null);
                 while(cursor.moveToNext()){
-                    Log.d("",cursor.getString(0));
-                    Log.d("",cursor.getString(1));
-                    Log.d("",cursor.getString(2));
+                    Log.d("asdf",cursor.getString(0));
+                    Log.d("fdas",cursor.getString(1));
+                    Log.d("asdsad",cursor.getString(2));
                 }
             }
         });
