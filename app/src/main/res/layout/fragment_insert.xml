@@ -21,20 +21,20 @@
         android:layout_weight="1">
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/proverb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="속담" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/goodword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="RadioButton" />
+            android:text="명언" />
     </RadioGroup>
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/comment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -43,7 +43,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
