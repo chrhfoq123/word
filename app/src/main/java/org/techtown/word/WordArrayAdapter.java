@@ -9,7 +9,18 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class WordArrayAdapter extends BaseAdapter {
+
+    private Context context;
+    private ArrayList<Word> list;
+
+    WordArrayAdapter(Context context, ArrayList<Word> list) {
+        this.context = context;
+        this.list = list;
+    }
+
     @Override
     public int getCount() {
         return 0;
@@ -27,12 +38,18 @@ public class WordArrayAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Context context = parent.getContext();
-        View view = LayoutInflater.from(context).inflate(R.layout.my_list_view, null);
+
+        View view = LayoutInflater.from(this.context).inflate(R.layout.my_list_view, null);
         TextView category = view.findViewById(R.id.category);
         TextView comment = view.findViewById(R.id.comment);
         TextView content = view.findViewById(R.id.content);
 
-        return null;
+        Word word = this.list.get(position);
+        category.setText(word.getCategory());
+        comment.setText(word.getComment());
+        content.setText(word.getContent());
+
+
+        return view;
     }
 }

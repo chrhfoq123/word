@@ -24,14 +24,22 @@ public class WordListFragment extends Fragment {
 
         DAO dao = new DAO(getContext().getApplicationContext());
         Cursor cursor = dao.getDb().rawQuery("SELECT * FROM word", null);
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<Word> word_list = new ArrayList<Word>();
 
         while(cursor.moveToNext()){
-            arrayList.add(cursor.getString(1));
+            Word word = new Word();
+            word.setCategory(cursor.getString(0));
+            word.setComment(cursor.getString(1));
+            word.setContent(cursor.getString(2));
+            word_list.add(word);
         }
 
-        ArrayAdapter adapter = new ArrayAdapter(getContext().getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
+        for(Word word : word_list){
+            Log.d("여기에요", word.getComment());
+        }
 
+
+        WordArrayAdapter adapter = new WordArrayAdapter(getContext().getApplicationContext(), word_list);
         list.setAdapter(adapter);
         return view;
     }
