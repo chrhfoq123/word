@@ -14,7 +14,7 @@ public class DAO {
 
     public DAO(Context context) {
         this.context = context;
-        this.db = this.context.openOrCreateDatabase("ptk_db",Context.MODE_PRIVATE, null);
+        this.db = this.context.openOrCreateDatabase("csm",Context.MODE_PRIVATE, null);
     }
 
     public SQLiteDatabase getDb() {

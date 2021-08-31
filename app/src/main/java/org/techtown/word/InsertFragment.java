@@ -22,7 +22,7 @@ public class InsertFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_insert, container, false);
 
         Context context = getActivity().getApplicationContext();
-        SQLiteDatabase db = context.openOrCreateDatabase("csm", Context.MODE_PRIVATE, null);
+        DAO dao = new DAO(context);
 
         Button sent = view.findViewById(R.id.button);
         sent.setOnClickListener(new View.OnClickListener() {
@@ -45,15 +45,8 @@ public class InsertFragment extends Fragment {
                 EditText contents = view.findViewById(R.id.contents);
                 String text_contents = contents.getText().toString();
 
-                db.execSQL("Create table if not exists word (category VARCHAR(50), comment VARCHAR(255), content VARCHAR(512))");
-                db.execSQL("insert into word (category, comment, content) values ('"+value+"','"+text_comment+"','"+text_contents+"')");
-
-                Cursor cursor = db.rawQuery("SELECT * FROM word", null);
-                while(cursor.moveToNext()){
-                    Log.d("asdf",cursor.getString(0));
-                    Log.d("fdas",cursor.getString(1));
-                    Log.d("asdsad",cursor.getString(2));
-                }
+                dao.getDb().execSQL("Create table if not exists word (category VARCHAR(50), comment VARCHAR(255), content VARCHAR(512))");
+                dao.getDb().execSQL("insert into word (category, comment, content) values ('"+value+"','"+text_comment+"','"+text_contents+"')");
             }
         });
 
