@@ -34,12 +34,12 @@ public class WordListFragment extends Fragment {
             word_list.add(word);
         }
 
+        WordArrayAdapter adapter = new WordArrayAdapter();
+
         for(Word word : word_list){
-            Log.d("여기에요", word.getComment());
+            adapter.addItem(word.getCategory(),word.getComment(), word.getContent());
         }
 
-
-        WordArrayAdapter adapter = new WordArrayAdapter(getContext().getApplicationContext(), word_list);
         list.setAdapter(adapter);
         return view;
     }
